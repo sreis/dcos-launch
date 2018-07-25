@@ -3,6 +3,7 @@
 Usage:
   dcos-launch create [-L LEVEL -c PATH -i PATH]
   dcos-launch wait [-L LEVEL -i PATH]
+  dcos-launch install [-L LEVEL -i PATH]
   dcos-launch describe [-L LEVEL -i PATH]
   dcos-launch pytest [-L LEVEL -i PATH -e LIST] [--] [<pytest_extras>]...
   dcos-launch delete [-L LEVEL -i PATH]
@@ -13,6 +14,7 @@ Commands:
               given in --info-path which can then be used with the wait,
               describe, pytest, and delete calls.
   wait      Block until the cluster is up and running.
+  install   Installs DC/OS if using onprem
   describe  Return additional information about the composition of the cluster.
   pytest    Runs integration test suite on cluster. Can optionally supply
               options and arguments to pytest
@@ -68,9 +70,11 @@ def do_main(args):
 
     if args['wait']:
         launcher.wait()
-        launcher.install_dcos()
         print('Cluster is ready!')
         return 0
+
+    if args['install']:
+        launcher.install_dcos()
 
     if args['describe']:
         print(util.json_prettyprint(launcher.describe()))
