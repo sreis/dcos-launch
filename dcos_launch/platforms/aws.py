@@ -627,7 +627,7 @@ OS_AMIS = {
                   'sa-east-1': 'ami-a5acd0c9',
                   'us-east-1': 'ami-771beb0d',
                   'us-west-1': 'ami-866151e6',
-                  'us-west-2': 'ami-a9b24bd1'},
+                  'us-west-2': 'ami-b7d69ecf'},
     'cent-os-7-dcos-prereqs': {'ap-northeast-1': 'ami-72f93314',
                                'ap-southeast-1': 'ami-cac2b2a9',
                                'ap-southeast-2': 'ami-a0d736c2',
